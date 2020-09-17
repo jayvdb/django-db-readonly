@@ -2,18 +2,18 @@ SECRET_KEY = "notsecr3t"
 
 DB_READ_ONLY_MIDDLEWARE_MESSAGE = False
 SITE_READ_ONLY = False
-DB_READ_ONLY_DATABASES = False
+DB_READ_ONLY_DATABASES = []
 
-DATABASE_ENGINE = "sqlite3"
-
-# Uncomment below to run tests with mysql
-# DATABASE_ENGINE = "django.db.backends.mysql"
-# DATABASE_NAME = "readonly_test"
-# DATABASE_USER = "readonly_test"
-# DATABASE_HOST = "/var/mysql/mysql.sock"
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": ":memory:",
+    },
+}
 
 INSTALLED_APPS = [
     "readonly",
+    "tests",
 ]
 
 MIDDLEWARE = [

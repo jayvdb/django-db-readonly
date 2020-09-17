@@ -105,8 +105,8 @@ class ReadOnlyCursorWrapper(object):
 
 
 class PatchedCursorWrapper(utils.CursorWrapper):
-    def __init__(self, cursor, db):
-        self.cursor = ReadOnlyCursorWrapper(cursor, db)
+    def __init__(self, cursor, db,read_only=None):
+        self.cursor = ReadOnlyCursorWrapper(cursor, db, read_only=read_only)
         self.db = db
 
 
